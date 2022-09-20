@@ -52,6 +52,13 @@ class App extends Component {
     color: '#010101',
   };
 
+  componentDidMount() {}
+
+  componentDidUpdate() {
+    console.log('App component was update');
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
+
   render() {
     const normalizedFilter = this.state.filter.toLowerCase();
     const visibleContacts = this.state.contacts.filter(contact =>
