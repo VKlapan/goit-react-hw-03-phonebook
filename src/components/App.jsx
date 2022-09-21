@@ -52,11 +52,16 @@ class App extends Component {
     color: '#010101',
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const contactsInLocalStorage = JSON.parse(localStorage.getItem('contacts'));
+    if (contactsInLocalStorage)
+      this.setState({ contacts: contactsInLocalStorage });
+  }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     console.log('App component was update');
-    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    if (this.state.contacts !== prevState.contacts)
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
 
   render() {
