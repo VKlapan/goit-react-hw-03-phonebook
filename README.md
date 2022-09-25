@@ -84,3 +84,11 @@ state = { contacts: [], filter: '' }
 
 component preview Шаг 6 Расширь функционал приложения, позволив пользователю
 удалять ранее сохраненные контакты.
+
+UPD
+
+add storage phonebook contacts to `localStorage'. Use lifecycle methods.
+
+When you add and delete a contact, the contacts are stored in the local storage.
+When the application is loaded, contacts, if any, are read from local storage
+and are written to the state.
